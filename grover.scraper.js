@@ -1,5 +1,14 @@
-const newsapi = require('./news.api');
 const pptr = require('puppeteer');
+const newsapi = require('./news.api');
+
+const prompts = [];
+
+(() => {
+  newsapi
+    .getHeadlines()
+    .then(headlines => console.log(headlines))
+    .catch(err => console.log(err.message));
+})();
 
 (async () => {
   const browser = await pptr.launch();
