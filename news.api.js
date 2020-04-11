@@ -8,11 +8,11 @@ module.exports.getHeadlines = async () => {
   return newsapi.v2
     .topHeadlines({
       language: 'en',
-      country: 'us'
+      country: 'us',
     })
-    .then(response => {
-      response.articles.map(article => headlines.push(article.description));
+    .then((response) => {
+      response.articles.map((article) => headlines.push(article.description));
       return headlines;
     })
-    .catch(err => console.log(err.message));
+    .catch((err) => console.log(err.message));
 };
