@@ -11,7 +11,6 @@ async function test() {
 
   try {
     for (let i = 0; i < prompts.length; i++) {
-      console.log('hello');
       const text = await deepai.getGeneratedText(prompts[i]);
       console.log(text);
     }
