@@ -1,5 +1,5 @@
-const newsapi = require('./news.api');
-const deepai = require('./deepai.api');
+const newsapi = require('./newsapi');
+const generator = require('./generator');
 
 const prompts = [];
 
@@ -11,8 +11,9 @@ async function test() {
 
   try {
     for (let i = 0; i < prompts.length; i++) {
-      const text = await deepai.getGeneratedText(prompts[i]);
-      console.log(text);
+      const text = await generator.getGeneratedText(prompts[i]);
+      const summarizedText = await generator.getSummarizedText(text.output);
+      console.log(summarizedText);
     }
   } catch (err) {
     console.log(err.message);
